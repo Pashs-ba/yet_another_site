@@ -14,5 +14,8 @@ class Category(models.Model):
 
 class Item(models.Model):
     name = models.CharField(verbose_name="Название", max_length=2000)
+    name_en = models.CharField(verbose_name="Название на английском", max_length=2000, null=True)
     description = models.TextField(verbose_name="Описание")
+    description_en = models.TextField(verbose_name="Название на английском", null=True)
     image = models.ImageField(verbose_name="Изображение")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)

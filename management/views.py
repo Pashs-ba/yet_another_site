@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CategoryForm
+from .forms import CategoryForm, ItemForm
 from .decorators import *
 from core.models import *
 from django.db import transaction
@@ -7,8 +7,6 @@ import zipfile
 import os
 from django.conf import settings
 import shutil
-
-
 
 
 @admin_only
@@ -49,10 +47,43 @@ def manage_category(request):
 
 @admin_only
 def delete_category(request):
-        if request.method == "POST":
-            for i in request.POST['to_del'].split(' '):
-                a = Category.objects.get(pk=int(i))
-                a.delete()
-            return redirect('category_manage')
-        else:
-            return render(request, 'category_delete.html', {'to_del': request.GET['to_del']})
+    if request.method == "POST":
+        for i in request.POST['to_del'].split(' '):
+            a = Category.objects.get(pk=int(i))
+            a.delete()
+        return redirect('category_manage')
+    else:
+        return render(request, 'category_delete.html', {'to_del': request.GET['to_del']})
+
+@admin_only
+def manage_items(request):
+    return render(request, 'item_mange.html', {'items':Item.objects.all().order_by('category')})
+
+@admin_only
+def create_items(request):
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('item_manage')
+    return render(request, 'item_create.html', {'form': ItemForm})
+
+@admin_only
+def update_items(request, pk):
+    model = Item.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=model)
+        if form.is_valid():
+            form.save()
+            return redirect('item_manage')
+    return render(request, 'item_create.html', {'form': ItemForm(instance=model)})
+
+@admin_only
+def delete_items(request):
+    if request.method == "POST":
+        for i in request.POST['to_del'].split(' '):
+            a = Item.objects.get(pk=int(i))
+            a.delete()
+        return redirect('item_manage')
+    else:
+        return render(request, 'item_delete.html', {'to_del': request.GET['to_del']})

@@ -1,6 +1,6 @@
 {% extends 'base_ru.html' %}
 {%load widget_tweaks%}
-{% block title %} Создание категории
+{% block title %} Создание предмета
 {% endblock title %}
 {% block main %}
 
@@ -17,7 +17,7 @@
                 {% endfor %}
                 <div class="my-3">
                     <button type="submit" class="btn btn-primary">Подтвердить</button>
-                    <a href="{%url "category_manage"%}" class="btn btn-secondary">Отмена</a>
+                    <a href="{%url "item_manage"%}" class="btn btn-secondary">Отмена</a>
                 </div>
             </form>
 
