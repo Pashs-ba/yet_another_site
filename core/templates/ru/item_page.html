@@ -1,0 +1,20 @@
+{% extends 'base_ru.html' %}
+{%block title%}{{item.name}}{%endblock%}
+{% block main %}
+<div class="container ">
+    <h3 class="display-3 text-center">{{item.name}}</h3>
+    <div class="d-flex justify-content-center">
+        <img src="/media/{{item.image}}" style="max-width:33%;" alt="">
+    </div>
+    
+    <div class="fw-normal fs-4">
+        {{item.description|linebreaksbr}}
+    </div>
+    <div class="text-center mb-5">
+        <a class="btn btn-primary btn-lg">Добавить в корзину</a>
+        <a href="{%url "category_page_ru" item.category.pk%}" class="btn btn-primary btn-lg">Назад к категории</a>
+    </div>
+    
+</div>
+{% endblock main %}
+{% block to_en %}{%url "item_page_en" item.pk%}{% endblock to_en %}

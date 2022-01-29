@@ -45,7 +45,7 @@
         {%for i in category.item_set.all%}
           <div class="col-lg-4 mx-2 my-2 text-center">
             <div class="card" >
-              <a href="#">
+              <a href="{%url 'item_page_en' i.pk%}">
                   <img class="card-img-top" style="max-width:50%;" src="/media/{{i.image}}" alt="Card image cap">
               </a>
               <div class="card-body">

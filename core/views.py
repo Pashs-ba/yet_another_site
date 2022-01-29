@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category
+from .models import Category, Item
 import os
 from django.conf import settings
 
@@ -17,4 +17,7 @@ def category_page(request, pk):
 def category_page_en(request, pk):
     return render(request, 'en/category_page.html', context={'category': Category.objects.get(pk=pk), 
                                                              'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media/{Category.objects.get(pk=pk).pk}'))})
-                                                            
+def item_page(request, pk):
+    return render(request, 'ru/item_page.html', context={'item': Item.objects.get(pk=pk)})
+def item_page_en(request, pk):
+    return render(request, 'en/item_page.html', context={'item': Item.objects.get(pk=pk)})
