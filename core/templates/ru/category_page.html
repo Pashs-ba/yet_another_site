@@ -1,0 +1,62 @@
+{% extends 'base_ru.html' %}
+{%block title%}{{category.name}}{%endblock%}
+{%block main%}
+<div id="big_logo" class='d-flex justify-content-center align-items-center effect mb-5'>
+    <h1 class="display-1 text-center"><b> {{category.name}}</b></h1>
+</div>
+<div class="container ">
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <div class="fw-normal fs-4">
+                {{category.description|linebreaksbr}}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/media/{{category.image_description}}" alt="">
+        </div>
+    </div>
+        <div id="carouselExampleControls" class="carousel slide mb-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            {%for i in carousel%}
+            {%if i == carousel.0%}
+              <div class="carousel-item active">
+                <img src="/media/{{category.pk}}/{{i}}" class="d-block w-100" alt="...">
+              </div>
+            {%else%}
+            <div class="carousel-item">
+                <img src="/media/{{category.pk}}/{{i}}" class="d-block w-100" alt="...">
+              </div>
+            {%endif%}
+            {%endfor%}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    
+</div>
+{%endblock%} 
+{%block style%}
+<style>
+    body, html, main {
+        height: 100%;
+    }
+    .effect{
+        min-height: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: rgba(255,255,255,0.4);
+        background-blend-mode: lighten;
+    }
+    #big_logo{
+        background-image: url('/media/{{category.big_image}}');
+    }
+</style>
+{%endblock%}

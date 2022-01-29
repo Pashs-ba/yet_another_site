@@ -19,7 +19,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item m-3">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item m-3">
                 <a class="nav-link" href="#">Contact Us</a>
@@ -27,9 +27,14 @@
               <li class="nav-item m-3">
                 <a class="nav-link" href="#">Shop</a>
               </li>
+              {% if user.is_superuser %}
+              <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'category_manage'%}">Manage categories</a>
+              </li>
+              {% endif %}
             </ul>
             <div class="d-flex">
-              <a href="{%url 'main_ru' %}" class="btn btn-outline-primary btn-lg">RU</a>
+              <a href="{% block to_ru %}{% endblock to_ru %}" class="btn btn-outline-primary btn-lg">RU</a>
             </div>
           </div>
         </div>
@@ -41,10 +46,10 @@
         <div class="d-flex justify-content-center">
         <div class="col-lg-8">
             <div class="row">
-                <div class="col-6 fs-5">
+                <div class="col-4 fs-5 m-3">
                     <a href="mailto:info@phytogenix.ru" rel="noopener noreferrer" style="color: rgb(255, 255, 255);">info@phytogenix.ru</a>
                 </div>
-                <div class="col-6 fs-5">
+                <div class="col-4 fs-5 m-3">
                     +7 (812) 502-12-00
                 </div>
 
