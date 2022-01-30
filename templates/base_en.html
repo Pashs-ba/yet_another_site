@@ -34,6 +34,9 @@
                   {%endfor%}
                 </ul>
               </li>
+              <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'basket_en'%}">Cart</a>
+              </li>
               {% if user.is_superuser %}
               <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'category_manage'%}">Manage categories</a>

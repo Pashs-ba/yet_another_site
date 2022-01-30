@@ -66,3 +66,24 @@ def basket(request):
         return render(request, 'ru/basket.html', context={'basket': ret})
     else:
         return render(request, 'ru/basket.html', context={'empty': True})
+
+def basket_en(request):
+    print(request.session['basket'])
+    if 'basket' in request.session.keys() and request.session['basket']!=dict():
+        basket = request.session['basket'].items()
+        ret = []
+        to_del = []
+        for i in basket:
+            if i[1]>0:
+                ret.append([Item.objects.get(pk=i[0]), i[1]])
+            else:
+                to_del.append(i[0])
+        for i in to_del:
+            del request.session['basket'][i]
+        request.session.modified = True
+            
+        
+        
+        return render(request, 'en/basket.html', context={'basket': ret})
+    else:
+        return render(request, 'en/basket.html', context={'empty': True})

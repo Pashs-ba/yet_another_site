@@ -1,27 +1,27 @@
-{% extends 'base_ru.html' %}
+{% extends 'base_en.html' %}
 {%load tags%}
-{%block title%}Корзина{%endblock%}
+{%block title%}Cart{%endblock%}
 {%block main%}
-<h3 class="display-3 text-center mb-3">Корзина</h3>
+<h3 class="display-3 text-center mb-3">Cart</h3>
 <div class="container">
     {% csrf_token %}
     {%if empty%}
-    <h5 class="display-5 text-center mb-3">Тут ничего нет...</h5>
+    <h5 class="display-5 text-center mb-3">It's nothing here...</h5>
     {%else%}
     <div class="row">
         <div class="col-lg-8">
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col" style="width:40%" class="text-center">Товар</th>
-                    <th scope="col" style="width:40%" class="text-center">Колличество</th>
-                    <th scope="col" style="width:20%" class="text-center">Цена</th>
+                    <th scope="col" style="width:40%" class="text-center">Item</th>
+                    <th scope="col" style="width:40%" class="text-center">Amount</th>
+                    <th scope="col" style="width:20%" class="text-center">Cost</th>
                   </tr>
                 </thead>
                 <tbody>
                     {%for i in basket%}
                   <tr class="r_{{i.0.pk}}">
-                    <td class="text-center">{{i.0.name}}</td>
+                    <td class="text-center">{{i.0.name_en}}</td>
                     <td class="text-center">
                         <div class="input-group mb-3">
                             <button class="btn btn-outline-secondary" onclick="minus({{i.0.id}})" type="button" id="button-addon1">-</button>
@@ -39,17 +39,17 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col" style="width:80%" class="text-center">Итог</th>
+                    <th scope="col" style="width:80%" class="text-center">Total</th>
                     <th scope="col" class="text-center"></th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Подитог</th>
+                        <th>Subtotal</th>
                         <th>&euro;<span id="summary"></span></th>
                     </tr>
                     <tr>
-                        <th>Доставка</th>
+                        <th>Shiping</th>
                         <th><span>FREE</span></th>
                     </tr>
                     
@@ -57,13 +57,13 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Итого</th>
+                        <th>Total</th>
                         <th>&euro;<span id="to_this_too"></span></th>
                     </tr>
                   </tfoot>
             </table>
             <div class="text-center">
-                <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Сделать заказ</button>
+                <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Make order</button>
             </div>
         </div>
     </div>
@@ -74,12 +74,12 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Мы не принемаем заказы онлайн</h5>
+              <h5 class="modal-title" id="exampleModalLabel">We can't get online orders now</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Мы пока не можем принять ваш заказ онлайн.</br>
-              Свяжитесь с нами через order@phytogenix.ru или по телефону +7 (812) 502-12-00
+              We can't get your order now</br>
+              Please write to order@phytogenix.ru or phone +7 (812) 502-12-00
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -161,4 +161,4 @@
     cost_m()
 </script>
 {%endblock%}
-{% block to_en %}{%url "basket_en"%}{% endblock to_en %}
+{% block to_ru %}{%url "basket_ru"%}{% endblock to_ru %}

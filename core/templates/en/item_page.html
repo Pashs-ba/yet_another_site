@@ -18,11 +18,11 @@
             <div class="text-center mb-5">
                 {% csrf_token %}
                 {%if is_in_basket %}
-                    <a class="btn btn-outline-primary btn-lg" href="{%url "basket_ru"%}" id="{{item.pk}}" onclick="">In cart</a>
+                    <a class="btn btn-outline-primary btn-lg" href="{%url "basket_en"%}" id="{{item.pk}}" onclick="">In cart</a>
                 {%else%}
                     <a class="btn btn-primary btn-lg" id="{{item.pk}}" onclick="add(this)">Buy</a>
                 {%endif%}
-                <a href="{%url "category_page_ru" item.category.pk%}" id="need"class="btn btn-primary btn-lg ml-3">Back to category</a>
+                <a href="{%url "category_page_en" item.category.pk%}" id="need"class="btn btn-primary btn-lg ml-3">Back to category</a>
             </div>
         </div>
     
@@ -38,7 +38,7 @@
         }
     @media (min-width: 992px) {
         .small-lg{
-          max-width:33%;
+          max-width:50%;
         }
       } 
     
@@ -62,7 +62,7 @@
         e.innerHTML = "In basket"
         e.classList = ['btn btn-outline-primary btn-lg mr-3']
         e.style = 'margin-left: 5px;'
-        e.href = "#"
+        e.href = "{%url "basket_en"%}"
         document.getElementById('need').before(e);
   
         

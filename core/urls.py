@@ -13,5 +13,6 @@ urlpatterns = [
     path('change_count/<int:pk>/<int:count>', change_count, name="change_count"),
     path('delete/<int:pk>', delete_item, name="delete_item"),
 
-    path('basket/ru', basket, name="basket_ru")
+    path('basket/ru', basket, name="basket_ru"),
+    path('basket', basket_en, name="basket_en"),
 ]
