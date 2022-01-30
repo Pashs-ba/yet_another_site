@@ -15,4 +15,9 @@ urlpatterns = [
 
     path('basket/ru', basket, name="basket_ru"),
     path('basket', basket_en, name="basket_en"),
+
+    path('news/ru', news_block, name="news_block_ru"),
+    path('news', news_block_en, name="news_block_en"),
+    path('news/ru/<int:pk>', news_page, name="news_page"),
+    path('news/<int:pk>', news_page_en, name="news_page_en"),
 ]

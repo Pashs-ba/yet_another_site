@@ -1,0 +1,24 @@
+{% extends 'base_en.html' %}
+{% block title %}News
+{% endblock title %}
+{% block main %}
+<div class="container">
+    <h2 class="text-center display-2">Our news</h2>
+    <div class="row d-flex justify-content-center">
+        {%for i in news%}
+            <div class="col-lg-3 text-center m-3" style="">
+                <div class="card p-3" >
+                    <a href="{%url "news_page_en" i.pk%}"><img class="card-img-top" src="/media/{{i.image}}" alt="Card image cap" style="max-width:100%;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.title_en}}</h5>
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+        <div style="padding-bottom:25%"></div>
+    </div>
+</div>
+{% endblock main %}
+{%block to_ru %}
+{%url 'news_block_ru'%}
+{%endblock%}

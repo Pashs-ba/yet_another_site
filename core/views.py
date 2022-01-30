@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Category, Item
+from .models import Category, Item, News
 import os
 from django.conf import settings
 
@@ -87,3 +87,15 @@ def basket_en(request):
         return render(request, 'en/basket.html', context={'basket': ret})
     else:
         return render(request, 'en/basket.html', context={'empty': True})
+
+def news_block(request):
+    return render(request, 'ru/news_block.html', {'news': News.objects.all()})
+
+def news_block_en(request):
+    return render(request, 'en/news_block.html', {'news': News.objects.all()})
+
+def news_page(request, pk):
+    return render(request, 'ru/news_page.html', {'news': News.objects.get(pk=pk)})
+
+def news_page_en(request, pk):
+    return render(request, 'en/news_page.html', {'news': News.objects.get(pk=pk)})

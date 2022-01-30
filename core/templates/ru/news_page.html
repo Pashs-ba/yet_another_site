@@ -1,0 +1,17 @@
+{% extends 'base_ru.html' %}
+{%block title%}{{news.title}}{%endblock%}
+{%block main%}
+<div class="container">
+    <h2 class="text-center display-2 mb-3 mt-3">{{news.title}}</h2>
+    <div class="d-flex justify-content-center mb-3">
+        <img src="/media/{{news.image}}" style="max-width:70%;" alt="">
+    </div>
+    
+    <div class="fw-normal fs-4 mb-4">
+        {{news.text|linebreaksbr}}
+    </div>
+</div>
+{%endblock%}
+{%block to_en %}
+{%url 'news_page_en' news.pk%}
+{%endblock%}
