@@ -12,11 +12,11 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <img src="/media/{{category.image_description}}" alt="">
+            <img src="/media/{{category.image_description}}" alt="" style="max-width:100%">
         </div>
     </div>
     <div class="d-flex justify-content-center mb-5">
-        <div id="carouselExampleControls" class="carousel slide "style="max-width:70%;" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide small-lg"style="" data-bs-ride="carousel">
           <div class="carousel-inner">
           {%for i in carousel%}
           {%if i == carousel.0%}
@@ -74,6 +74,11 @@
     }
     #big_logo{
         background-image: url('/media/{{category.big_image}}');
+    }
+    @media (min-width: 992px) {
+      .small-lg{
+        max-width:70%;
+      }
     }
 </style>
 {%endblock%}

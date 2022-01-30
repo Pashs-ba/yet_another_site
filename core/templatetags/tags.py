@@ -7,3 +7,8 @@ register = template.Library()
 def category_all(context):
     context['category_list'] = Category.objects.all()
     return ''
+
+
+@register.filter
+def mult(value, arg):
+    return value * arg

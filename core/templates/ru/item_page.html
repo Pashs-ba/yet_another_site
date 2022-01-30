@@ -2,19 +2,74 @@
 {%block title%}{{item.name}}{%endblock%}
 {% block main %}
 <div class="container ">
-    <h3 class="display-3 text-center">{{item.name}}</h3>
-    <div class="d-flex justify-content-center">
-        <img src="/media/{{item.image}}" style="max-width:33%;" alt="">
+    
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-6">
+            
+            <div class="d-flex justify-content-center">
+                <img src="/media/{{item.image}}" style="" alt="" class="small-lg">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h3 class="display-3 mb-4">{{item.name}}</h3>
+            <h3 class="display-3 mb-4">&euro;{{item.cost}}</h3>
+            <div class="fw-normal fs-4 mb-4">
+                {{item.description|linebreaksbr}}
+            </div>
+            <div class="text-center mb-5">
+                {% csrf_token %}
+                {%if is_in_basket %}
+                    <a class="btn btn-outline-primary btn-lg" href="{%url "basket_ru"%}" id="{{item.pk}}" onclick="">В корзине</a>
+                {%else%}
+                    <a class="btn btn-primary btn-lg" id="{{item.pk}}" onclick="add(this)">Добавить в корзину</a>
+                {%endif%}
+                <a href="{%url "category_page_ru" item.category.pk%}" id="need"class="btn btn-primary btn-lg ml-3">Назад к категории</a>
+            </div>
+        </div>
+    
     </div>
     
-    <div class="fw-normal fs-4">
-        {{item.description|linebreaksbr}}
-    </div>
-    <div class="text-center mb-5">
-        <a class="btn btn-primary btn-lg">Добавить в корзину</a>
-        <a href="{%url "category_page_ru" item.category.pk%}" class="btn btn-primary btn-lg">Назад к категории</a>
-    </div>
     
 </div>
 {% endblock main %}
 {% block to_en %}{%url "item_page_en" item.pk%}{% endblock to_en %}
+{%block style%}
+<style>
+    .small-lg{
+        max-width:70%;
+        }
+    @media (min-width: 992px) {
+        .small-lg{
+          max-width:50%;
+        }
+      } 
+    
+</style>
+{%endblock%}
+{%block js%}
+<script>
+    function add(e){
+    
+        
+        $.ajax({
+            url: '/add_basket/'+e.id.toString(),
+            data: {
+                'csrfmiddlewaretoken': document.getElementsByName('csrfmiddlewaretoken')[0].value
+            },
+            dataType: 'json',
+            success: function(data){console.log(data)}
+          })
+        e.remove()
+        e = document.createElement('a')
+        e.innerHTML = "В корзине"
+        e.classList = ['btn btn-outline-primary btn-lg mr-3']
+        e.style = 'margin-left: 5px;'
+        e.href = "{%url 'basket_ru'%}"
+        document.getElementById('need').before(e);
+  
+        
+    }
+    
+
+</script>
+{%endblock%}

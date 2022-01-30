@@ -17,5 +17,6 @@ class Item(models.Model):
     name_en = models.CharField(verbose_name="Название на английском", max_length=2000, null=True)
     description = models.TextField(verbose_name="Описание")
     description_en = models.TextField(verbose_name="Название на английском", null=True)
+    cost = models.DecimalField(verbose_name="Цена, €", null=True, decimal_places=2, max_digits=5)
     image = models.ImageField(verbose_name="Изображение")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
