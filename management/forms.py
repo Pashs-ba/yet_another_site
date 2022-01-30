@@ -1,7 +1,5 @@
-from tkinter import Widget
-from xml.etree.ElementInclude import include
 from django import forms
-from core.models import Category, Item
+from core.models import Category, Item, News
 
 class CategoryForm(forms.ModelForm):
     class Meta():
@@ -14,4 +12,10 @@ class CategoryForm(forms.ModelForm):
 class ItemForm(forms.ModelForm):
     class Meta():
         model = Item
+        fields = '__all__'
+
+        
+class NewsForm(forms.ModelForm):
+    class Meta():
+        model = News
         fields = '__all__'

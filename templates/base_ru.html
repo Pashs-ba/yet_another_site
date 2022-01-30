@@ -39,10 +39,13 @@
               </li>
               {% if user.is_superuser %}
               <li class="nav-item m-3">
-                <a class="nav-link" href="{%url 'category_manage'%}">Manage categories</a>
+                <a class="nav-link" href="{%url 'category_manage'%}">Управление категориями</a>
               </li>
               <li class="nav-item m-3">
-                <a class="nav-link" href="{%url 'item_manage'%}">Manage items</a>
+                <a class="nav-link" href="{%url 'item_manage'%}">Управление товарами</a>
+              </li>
+              <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'news_manage'%}">Управление новостями</a>
               </li>
               {% endif %}
             </ul>

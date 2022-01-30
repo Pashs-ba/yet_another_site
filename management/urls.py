@@ -11,5 +11,10 @@ urlpatterns = [
     path('items', manage_items, name="item_manage"),
     path('items/create', create_items, name="items_create"),
     path('items/<int:pk>', update_items, name="items_update"),
-    path('items/delete', delete_items, name='items_delete')
+    path('items/delete', delete_items, name='items_delete'),
+
+    path('news', manage_news, name="news_manage"),
+    path('news/create', create_news, name="news_create"),
+    path('news/<int:pk>', update_news, name="news_update"),
+    path('news/delete', delete_news, name="news_delete")
 ]

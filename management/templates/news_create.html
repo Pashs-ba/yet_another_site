@@ -1,0 +1,28 @@
+{% extends 'base_ru.html' %}
+{%load widget_tweaks%}
+{% block title %} Создание yjdjcnb
+{% endblock title %}
+{% block main %}
+
+<div class="container">
+    <div class="card my-5">
+        <div class="card-body">
+            <form method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                {% for i in form %}
+                    <div class="mb-3">
+                        <label for="{{ i.auto_id }}" class="form-label">{{ i.label }}</label>
+                        {% render_field i class='form-control' %}
+                    </div>
+                {% endfor %}
+                <div class="my-3">
+                    <button type="submit" class="btn btn-primary">Подтвердить</button>
+                    <a href="{%url "news_manage"%}" class="btn btn-secondary">Отмена</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

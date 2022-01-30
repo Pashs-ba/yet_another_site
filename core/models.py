@@ -20,3 +20,10 @@ class Item(models.Model):
     cost = models.DecimalField(verbose_name="Цена, €", null=True, decimal_places=2, max_digits=5)
     image = models.ImageField(verbose_name="Изображение")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+
+class News(models.Model):
+    title = models.CharField(verbose_name='Заголовок на русском', max_length=2000)
+    title_en = models.CharField(verbose_name='Заголовок на английском', max_length=2000)
+    text = models.TextField(verbose_name="Текст на русском")
+    text_en = models.TextField(verbose_name="Текст на английском")
+    image = models.ImageField(verbose_name="Изображение")
