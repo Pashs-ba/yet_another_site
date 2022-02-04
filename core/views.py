@@ -47,7 +47,6 @@ def delete_item(request, pk):
     return HttpResponse('OK')
 
 def basket(request):
-    print(request.session['basket'])
     if 'basket' in request.session.keys() and request.session['basket']!=dict():
         basket = request.session['basket'].items()
         ret = []
@@ -68,7 +67,6 @@ def basket(request):
         return render(request, 'ru/basket.html', context={'empty': True})
 
 def basket_en(request):
-    print(request.session['basket'])
     if 'basket' in request.session.keys() and request.session['basket']!=dict():
         basket = request.session['basket'].items()
         ret = []
