@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {%load tags%}
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
 <body>
     <nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light" tabindex="-1">
         <div class="container-fluid">
-          <a class="navbar-brand mb-3 mt-3" href="{%url 'main_en'%}">Phytogenix&reg</a>
+          <a class="navbar-brand" href="{%url 'main_ru'%}"><IMG src="{% static '/core/logo_b.png' %}" height="75" width="155"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
