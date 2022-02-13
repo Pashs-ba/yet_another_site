@@ -12,12 +12,12 @@ def main_ru(request):
 
 def category_page(request, pk):
     return render(request, 'ru/category_page.html', context={'category': Category.objects.get(pk=pk), 
-                                                             'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media\{Category.objects.get(pk=pk).pk}'))})
+                                                             'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media/{Category.objects.get(pk=pk).pk}'))})
 
 
 def category_page_en(request, pk):
     return render(request, 'en/category_page.html', context={'category': Category.objects.get(pk=pk), 
-                                                             'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media\{Category.objects.get(pk=pk).pk}'))})
+                                                             'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media/{Category.objects.get(pk=pk).pk}'))})
 def item_page(request, pk):
     # print(request.session['basket'].keys(), pk)
     return render(request, 'ru/item_page.html', context={'item': Item.objects.get(pk=pk), 'is_in_basket': 'basket' in request.session.keys() and str(pk) in request.session['basket'].keys()})
