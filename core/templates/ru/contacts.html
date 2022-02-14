@@ -1,0 +1,35 @@
+{% extends 'base_ru.html' %}
+{%block title%}Контакты{%endblock%}
+{%block main%}
+
+<div class="container contact-form" style="margin-top: 10%; padding-bottom: 10%">
+            <form method="post">
+                <h3 class="display-3 text-center mb-5" >Оставьте свои контакты для связи!</h3>
+               <div class="row">
+                   {% csrf_token %}
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="exampleInputName1" class="form-label">Ваше имя*</label>
+                            <input type="text" class="form-control" id="exampleInputName1"  name="name" required placeholder="Ivan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleEmailName1" class="form-label">Ваша почта*</label>
+                            <input type="email" class="form-control" id="exampleEmailName1"  name="form_email" required placeholder="some@test.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplePhoneName1" class="form-label">Ваш телефон</label>
+                            <input type="text" class="form-control" id="examplePhoneName1"  name="phone" placeholder="+7 999 999 99 99" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                            <label for="exampleMessageName1" class="form-label">Текст сообщения*</label>
+                            <textarea name="message" class="form-control" placeholder="Ваше сообщение" style="width: 100%; height: 80%;"></textarea>
+                    </div>
+                   <div class="my-3 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary btn-lg">Послать</button>
+                   </div>
+                </div>
+            </form>
+            <div class="h-25"></div>
+</div>
+{%endblock%}

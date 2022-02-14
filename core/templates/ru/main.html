@@ -4,9 +4,22 @@
 {%block main%}
 
 <div id="big_logo" class='d-flex justify-content-center align-items-center effect' style="flex-direction: column">
-        <div class="container-flex px-4">
-            <div class="row">
-                <IMG src="{% static '/core/logo_s.png' %}">
+        <div class="container px-4">
+            <div class="row-2 central">
+                <IMG src="{% static '/core/logo_s.png' %}" class="w-75 h-75">
+            </div>
+            <div class="row-3 central pb-5">
+                <IMG src="{% static '/core/icons/fl.png' %}" class="iconhw mb-5">
+                <IMG src="{% static '/core/icons/fr.png' %}" class="iconhw mb-2">
+                <IMG src="{% static '/core/icons/re.png' %}" class="iconhw mb-2">
+                <IMG src="{% static '/core/icons/sa.png' %}" class="iconhw mb-4">
+                <IMG src="{% static '/core/icons/gaz.png' %}" class="iconhw mb-3">
+            </div>
+            <div class="row-3 central mb-5">
+                <IMG src="{% static '/core/icons/hm.png' %}" class="iconhw">
+                <IMG src="{% static '/core/icons/hu.png' %}" class="iconhw">
+                <IMG src="{% static '/core/icons/aqua.png' %}" class="iconhw">
+                <IMG src="{% static '/core/icons/an.png' %}" class="iconhw">
             </div>
         </div>
 </div>
@@ -218,6 +231,16 @@
     text-align: start;
     }
 
+    .central{
+        text-align: center;
+    }
+
+    .iconhw{
+        height: 15%;
+        width: 15%;
+        margin-right: 30px;
+    }
+
     .effect{
         min-height: 100%;
         background-size: cover;
@@ -228,6 +251,7 @@
         background-color: rgba(255,255,255,0.4);
         background-blend-mode: lighten;
     }
+
     #big_logo{
         background-image: url({%static 'core/ferns_1.jpg'%});
     }
@@ -235,9 +259,9 @@
         background-image: url({%static 'core/forset.jpg'%});
         min-height: 50%;
     }
+
     .need{
         opacity: 0;
-
     }
     .animate{
         transform: translateY(150%);
@@ -259,6 +283,15 @@
 
     .card-body{
         min-height: 200px;
+    }
+
+    .button{
+        display: inline-block;
+        height: 134px;
+        padding: 0;
+        margin: 0;
+        vertical-align: top;
+        width: 104px;
     }
 
     .card-footer{
