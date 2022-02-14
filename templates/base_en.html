@@ -40,17 +40,33 @@
               <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'news_block_en'%}">News</a>
               </li>
-              <li class="nav-item dropdown m-3">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {% category_all %} Shop
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {%for i in category_list%}
-                    <li><a class="dropdown-item" href="{%url 'category_page_en' i.pk%}">{{i.name_en}}</a></li>
-                  {%endfor%}
-                </ul>
+                {%category_all%}
+
+                <li class="nav-item dropdown dropdown-mega m-3">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Products</a>
+                <div class="dropdown-menu shadow" style="margin-left: auto;margin-right: auto;">
+                  <div class="mega-content px-4">
+                    <div class="container-fluid">
+                      <div class="row d-flex justify-content-center">
+                        {%for i in category_list%}
+                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                          <h5><a href="{%url 'category_page_en' i.pk%}" class="black" style="text-decoration: none">{{i.name_en}}</a></h5>
+                          <div class="list-group">
+                            {%for j in i.item_set.all%}
+                              <a class="list-group-item" href="{%url 'item_page_en' j.pk%}">{{j.name_en}}</a>
+                            {%endfor%}
+                          </div>
+                        </div>
+                        {%endfor%}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </li>
               <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'contacts_en'%}">Contact us</a>
+              </li>
+                <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'basket_en'%}">Cart</a>
               </li>
               {% if user.is_superuser %}
@@ -64,28 +80,6 @@
                 <a class="nav-link" href="{%url 'news_manage'%}">Manage news</a>
               </li>
               {% endif %}
-              <li class="nav-item dropdown dropdown-mega m-3">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Products</a>
-                <div class="dropdown-menu shadow" style="margin-left: auto;margin-right: auto;">
-                  <div class="mega-content px-4">
-                    <div class="container-fluid">
-                      <div class="row d-flex justify-content-center">
-                        {%for i in category_list%}
-                        <div class="col-12 col-sm-4 col-md-3 py-4">
-                          <h5><a href="{%url "category_page_en" i.pk%}" class="black" style="text-decoration: none">{{i.name_en}}</a></h5>
-                          <div class="list-group">
-                            {%for j in i.item_set.all%}
-                              <a class="list-group-item" href="{%url "item_page_en" j.pk%}">{{j.name_en}}</a>
-                            {%endfor%}
-                          </div>
-                        </div>
-                        {%endfor%}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
             </ul>
             <div class="d-flex">
               <a href="{% block to_ru %}{% endblock to_ru %}" class="btn btn-outline-primary btn-lg">RU</a>

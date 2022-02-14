@@ -1,8 +1,12 @@
+from django.core.mail import BadHeaderError, send_mail
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Category, Item, News
 import os
 from django.conf import settings
+from yet_another_site.settings import RECIPIENTS_EMAIL, DEFAULT_FROM_EMAIL
+from .templatetags.forms import ContactForm
+
 
 def main_en(request):
     return render(request, 'en/main.html', context = {'category': Category.objects.all()})
@@ -15,7 +19,43 @@ def category_page(request, pk):
                                                              'carousel': os.listdir(os.path.join(settings.BASE_DIR, f'media/{Category.objects.get(pk=pk).pk}'))})
 
 def contacts_page(request):
-    return render(request, 'ru/contacts.html')
+    # если метод GET, вернем форму
+    if request.method == 'GET':
+        form = ContactForm()
+    elif request.method == 'POST':
+        form = ContactForm(request.POST)
+        name = request.POST['name']
+        phone = request.POST['phone']
+        from_email = request.POST['form_email']
+        message = request.POST['message']
+        try:
+            send_mail(f'Обращение от пользователя {name}, почта: {from_email}, телефон: {phone}', message,
+                      DEFAULT_FROM_EMAIL, RECIPIENTS_EMAIL)
+        except BadHeaderError:
+            return HttpResponse('Ошибка в теме письма.')
+        return redirect('../')
+
+    return render(request, "ru/contacts.html")
+
+
+def contacts_page_en(request):
+    # если метод GET, вернем форму
+    if request.method == 'GET':
+        form = ContactForm()
+    elif request.method == 'POST':
+        form = ContactForm(request.POST)
+        name = request.POST['name']
+        phone = request.POST['phone']
+        from_email = request.POST['form_email']
+        message = request.POST['message']
+        try:
+            send_mail(f'Обращение от пользователя {name}, почта: {from_email}, телефон: {phone}, язык: EN ', message,
+                      DEFAULT_FROM_EMAIL, RECIPIENTS_EMAIL)
+        except BadHeaderError:
+            return HttpResponse('Wrong article.')
+        return redirect('../')
+
+    return render(request, "en/contacts.html")
 
 
 def category_page_en(request, pk):

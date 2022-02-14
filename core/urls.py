@@ -21,5 +21,6 @@ urlpatterns = [
     path('news/ru/<int:pk>', news_page, name="news_page"),
     path('news/<int:pk>', news_page_en, name="news_page_en"),
 
-    path('contacts/ru', contacts_page, name="contacts_ru")
+    path('contacts/ru', contacts_page, name="contacts_ru"),
+    path('contacts/', contacts_page_en, name="contacts_en")
 ]

@@ -44,7 +44,31 @@
                     <a class="nav-link" href="{%url 'news_block_ru'%}">Новости</a>
                   </li>
                   {%category_all%}
+                    <li class="nav-item dropdown dropdown-mega m-3">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Продукты</a>
+                <div class="dropdown-menu shadow" style="margin-left: auto;margin-right: auto;">
+                  <div class="mega-content px-4">
+                    <div class="container-fluid">
+                      <div class="row d-flex justify-content-center">
+                        {%for i in category_list%}
+                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                          <h5><a href="{%url 'category_page_ru' i.pk%}" class="black" style="text-decoration: none">{{i.name}}</a></h5>
+                          <div class="list-group">
+                            {%for j in i.item_set.all%}
+                              <a class="list-group-item" href="{%url 'item_page_ru' j.pk%}">{{j.name}}</a>
+                            {%endfor%}
+                          </div>
+                        </div>
+                        {%endfor%}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
               <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'contacts_ru'%}">Связаться с нами</a>
+              </li>
+                    <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'basket_ru'%}">Корзина</a>
               </li>
               {% if user.is_superuser %}
@@ -58,28 +82,7 @@
                 <a class="nav-link" href="{%url 'news_manage'%}">Управление новостями</a>
               </li>
               {% endif %}
-              <li class="nav-item dropdown dropdown-mega m-3">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Продукты</a>
-                <div class="dropdown-menu shadow" style="margin-left: auto;margin-right: auto;">
-                  <div class="mega-content px-4">
-                    <div class="container-fluid">
-                      <div class="row d-flex justify-content-center">
-                        {%for i in category_list%}
-                        <div class="col-12 col-sm-4 col-md-3 py-4">
-                          <h5><a href="{%url "category_page_ru" i.pk%}" class="black" style="text-decoration: none">{{i.name}}</a></h5>
-                          <div class="list-group">
-                            {%for j in i.item_set.all%}
-                              <a class="list-group-item" href="{%url "item_page_ru" j.pk%}">{{j.name}}</a>
-                            {%endfor%}
-                          </div>
-                        </div>
-                        {%endfor%}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+
             </ul>
             <div class="d-flex">
               <a href="{% block to_en %}{% endblock to_en %}" class="btn btn-outline-primary btn-lg">EN</a>
