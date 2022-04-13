@@ -5,21 +5,23 @@
 
 <div id="big_logo" class='d-flex justify-content-center align-items-center effect' style="flex-direction: column">
     <div class="container px-4">
-            <div class="row-2 central">
+            <!--<div class="row-2 central">
                 <IMG src="{% static '/core/logo_s.png' %}" class="w-75 h-75">
-            </div>
-            <div class="row-3 central pb-5">
+            </div>-->
+            <div class="row-3 central pb-5 mb-5">
                 <IMG src="{% static '/core/icons/fl.png' %}" class="iconhw mb-5">
                 <IMG src="{% static '/core/icons/fr.png' %}" class="iconhw mb-2">
-                <IMG src="{% static '/core/icons/re.png' %}" class="iconhw mb-2">
+                <IMG src="{% static '/core/icons/re.png' %}" class="iconhw2 mb-2">
+            </div>
+            <div class="row-3 central mb-5 pb-5">
                 <IMG src="{% static '/core/icons/sa.png' %}" class="iconhw mb-4">
                 <IMG src="{% static '/core/icons/gaz.png' %}" class="iconhw mb-3">
+                <IMG src="{% static '/core/icons/hm.png' %}" class="iconhw2">
             </div>
-            <div class="row-3 central mb-5">
-                <IMG src="{% static '/core/icons/hm.png' %}" class="iconhw">
+            <div class="row-3 central mb-5 pb-5">
                 <IMG src="{% static '/core/icons/hu.png' %}" class="iconhw">
                 <IMG src="{% static '/core/icons/aqua.png' %}" class="iconhw">
-                <IMG src="{% static '/core/icons/an.png' %}" class="iconhw">
+                <IMG src="{% static '/core/icons/an.png' %}" class="iconhw2">
             </div>
         </div>
 </div>
@@ -53,33 +55,24 @@
     </div>
 </div>
 <div class="container mb-5">
-    
-    
+
+
     <div class="row">
         <div class="col-lg-6 d-flex">
-            <img src="{%static 'core/ant.jpg'%}" alt="" class='w-100'>
+            <img src="{%static 'core/tomatos.jpg'%}" alt="" class='w-100 mt-3'>
         </div>
-        
+
         <div class="col-lg-6 align-items-center">
-            <h6 class="fs-1 pb-3 mt-3" id="header"><b>Phytogenix&reg Formula</b></h6>
+            <h6 class="fs-1 pb-3 mt-3" id="header"><b>Phytogenix® Formula</b></h6>
             <div class="fw-normal fs-4 need">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate id ad maxime odit voluptates! Aliquam adipisci ab quos voluptas iusto! Quae consectetur quisquam libero? Nihil doloremque harum corporis, maxime voluptatem incidunt illum possimus molestiae inventore laboriosam suscipit vero autem, unde in odit enim eligendi nisi expedita esse ex iusto cupiditate obcaecati odio libero? Quod, ipsam officia fugiat aut, consectetur debitis, rerum ab et perferendis tenetur maiores dignissimos temporibus quaerat magni assumenda similique accusantium cupiditate repellat fuga magnam. Ad nostrum consequuntur obcaecati sint labore cumque repellat natus reiciendis, esse, blanditiis quisquam temporibus aliquid quos libero ipsa! Repellat voluptatum ullam temporibus placeat?
-            </div>
-        </div>
-        
-    </div>
-</div>
-<div class="container mb-5">
-    <div class="row">
-        <div class="col-lg-6 mt-5">
-            <h6 class="fs-1 text-center" id=""><b></b></h6>
-            <div class="fw-normal fs-4 mb-5 need">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditatas iusto! Qassimus molestiae inventore laboriosam suscipit vero autem, unde in odit enim eligendi nisi expedita esse ex iusto cupiditate obcaecati odio libero? Quod, ipsam officia fugiat aut, consectetur debitis, rerum ab et perferendis tenetur maiores dignissimos temporibus quaerat magni assumenda similique accusantium cupiditate repellat fuga magnam. Ad nostrum consequuntur obcaecati sint labore cumque repellat natus reiciendis, esse, blanditiis quisquam temporibus aliquid quos libero ipsa! Repellat voluptatum ullam temporibus placeat?
+                Pellentesque habitant morbi tristique senectus etas. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
             </div>
         </div>
 
-        <div class="col-lg-6 d-flex align-items-center">
-            <img src="{%static 'core/tomatos.jpg'%}" alt="" class='w-100 '>
+    </div>
+    <div class="row align-items-center">
+        <div class="fw-normal mt-5 fs-4 need">
+            Quasi iusto possimus voluptas, blanditiis quibusdam hic reiciendis sequi fuga at illum.
         </div>
     </div>
 </div>
@@ -282,10 +275,16 @@
     }
 
     .iconhw{
-        height: 15%;
-        width: 15%;
-        margin-right: 30px;
+        height: 10%;
+        width: 10%;
+        margin-right: 10%;
     }
+
+    .iconhw2{
+        height: 10%;
+        width: 10%;
+    }
+
 </style>
 <script>
     var observer = new IntersectionObserver(entries => {

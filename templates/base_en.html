@@ -28,7 +28,7 @@
 <body>
     <nav class="navbar navbar-lg navbar-expand-lg navbar-light bg-light" tabindex="-1">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{%url 'main_ru'%}"><IMG src="{% static '/core/logo_b.png' %}" height="75" width="155"></a>
+          <a class="navbar-brand" href="{%url 'main_ru'%}"><IMG src="{% static '/core/logo_b.jpg' %}" height="75" width="155"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -66,9 +66,9 @@
               <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'contacts_en'%}">Contact us</a>
               </li>
-                <li class="nav-item m-3">
+               <!-- <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'basket_en'%}">Cart</a>
-              </li>
+              </li> -->
               {% if user.is_superuser %}
               <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'category_manage'%}">Manage categories</a>

@@ -2,9 +2,9 @@
 {%block title%}Contact us{%endblock%}
 {%block main%}
 
-<div class="container contact-form" style="margin-top: 10%; padding-bottom: 10%">
+<div class="container contact-form" style="margin-top: 5%; padding-bottom: 10%">
             <form method="post">
-                <h3 class="display-3 text-center mb-5" >Leave your contacts to us!</h3>
+                <h3 class="display-3 mb-5" >Leave your contacts to us!</h3>
                <div class="row">
                    {% csrf_token %}
                     <div class="col-md-6">
@@ -30,7 +30,14 @@
                    </div>
                 </div>
             </form>
-            <div class="h-25"></div>
+    <h3 class="mt-5 pt-5 display-5 mb-4" >Contacts</h3>
+        <div class="row">
+            <div class="col-md-0">
+                <div class="mb-3">
+                    <label class="form-label">  Adress: "Phytogenix" LLC: Russia, 195197, Saint Petersburg, Laboratorniy ave. 20, office 1 <br><br>  E-mail: info@phytogenix.ru <br><br>  Phone number: +7 (812) 502-12-00</label>
+                </div>
+            </div>
+        </div>
 </div>
 {%endblock%}
 {%block to_ru%}
