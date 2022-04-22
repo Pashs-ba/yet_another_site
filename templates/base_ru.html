@@ -39,9 +39,7 @@
                     <a class="nav-link" aria-current="page" href="{% url 'main_ru'%}" >Главная</a>
                   </li>
 
-                  <li class="nav-item m-3">
-                    <a class="nav-link" href="{%url 'news_block_ru'%}">Новости</a>
-                  </li>
+
                   {%category_all%}
                     <li class="nav-item dropdown dropdown-mega m-3">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Продукты</a>
@@ -66,6 +64,9 @@
               </li>
               <li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'contacts_ru'%}">Связаться с нами</a>
+              </li>
+                <li class="nav-item m-3">
+                <a class="nav-link" href="{%url 'news_block_ru'%}">Новости</a>
               </li>
                     <!--<li class="nav-item m-3">
                 <a class="nav-link" href="{%url 'basket_ru'%}">Корзина</a>
@@ -94,7 +95,7 @@
     {%block main%}
 
     {%endblock%}
-     <footer class="container-fluid bg-dark text-white text-center py-5 fixed-bottom-">
+     <footer class="container-fluid bg-dark text-white text-center py-3 fixed-bottom-">
         <div class="d-flex justify-content-center">
         <div class="col-lg-8">
             <div class="row">
